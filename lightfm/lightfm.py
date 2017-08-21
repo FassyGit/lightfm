@@ -590,6 +590,7 @@ class LightFM(object):
         if loss in ('warp', 'bpr', 'warp-kos'):
             # The CSR conversion needs to happen before shuffle indices are created.
             # Calling .tocsr may result in a change in the data arrays of the COO matrix,
+            #this is the positive lookup, select the positive
             positives_lookup = CSRMatrix(
                 self._get_positives_lookup_matrix(interactions))
 
