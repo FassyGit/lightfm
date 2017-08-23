@@ -5,6 +5,8 @@ import numpy as np
 
 import scipy.sparse as sp
 
+from .Preprocess import Preprocess
+
 from ._lightfm_fast import (CSRMatrix, FastLightFM,
                             fit_bpr, fit_logistic, fit_warp,
                             fit_warp_kos, predict_lightfm, predict_ranks)
@@ -191,6 +193,9 @@ class LightFM(object):
         self.rho = rho
         self.epsilon = epsilon
         self.max_sampled = max_sampled
+
+        self.negative_examples = [[]]
+        self.negative_num = []
 
         self.item_alpha = item_alpha
         self.user_alpha = user_alpha
@@ -418,6 +423,15 @@ class LightFM(object):
             raise ValueError('Not all input values are finite. '
                              'Check the input for NaNs and infinite values.')
 
+########################################
+    def get_negative_examples(self , interactions, usernum, itemnum, gps):
+        preprocessing = Preprocess(usernum, itemnum)
+        self.negative_examples = preprocessing(interactions, gps)
+        for negative_example in self.negative_examples:
+            self.negative_num.append(len(negative_example))
+
+
+########################################
     def fit(self, interactions,
             user_features=None, item_features=None,
             sample_weight=None,
@@ -607,6 +621,10 @@ class LightFM(object):
                      interactions.row,
                      interactions.col,
                      interactions.data,
+######################################
+                     self.negative_examples,
+                     self.negative_num,
+######################################
                      sample_weight,
                      shuffle_indices,
                      lightfm_data,
