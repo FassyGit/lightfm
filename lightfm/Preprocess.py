@@ -9,8 +9,6 @@ import codecs
 import math
 import time
 #from sklearn.crossw_validation import train_test_split
-from lightfm import LightFM
-from lightfm.evaluation import auc_score
 from math import radians, cos, sin, asin, sqrt
 from scipy import sparse
 import random
