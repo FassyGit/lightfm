@@ -425,7 +425,7 @@ class LightFM(object):
 
     def get_negative_examples(self , interactions, usernum, itemnum, gps):
         preprocessing = Preprocess(usernum, itemnum)
-        self.negative_examples = preprocessing(interactions, gps)
+        self.negative_examples = preprocessing.preprocess(interactions, gps)
         for negative_example in self.negative_examples:
             self.negative_num.append(len(negative_example))
 
