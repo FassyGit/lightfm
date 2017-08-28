@@ -194,7 +194,7 @@ class LightFM(object):
         self.epsilon = epsilon
         self.max_sampled = max_sampled
 
-        self.negative_examples = [[]]
+        self.negative_examples = []
         self.negative_num = []
 
         self.item_alpha = item_alpha
