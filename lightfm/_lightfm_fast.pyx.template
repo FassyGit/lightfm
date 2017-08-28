@@ -812,7 +812,7 @@ def fit_warp(CSRMatrix item_features,
     cdef flt *pos_it_repr
     cdef flt *neg_it_repr
     cdef unsigned int[::1] random_states
-    cdef int[:, :] neg_view = negative_examples
+    cdef int[:,:] neg_view = negative_examples
     cdef int[:] neg_num_view = negative_num
     random_states = random_state.randint(0,
                                          np.iinfo(np.int32).max,
@@ -867,6 +867,7 @@ def fit_warp(CSRMatrix item_features,
                 #                     % item_features.rows)
                 random_number = rand() * neg_num_view[row] / RAND_MAX
                 negative_item_id = neg_view[row , random_number]
+                assert negative_item_id >= 0
 
                 compute_representation(item_features,
                                        lightfm.item_features,

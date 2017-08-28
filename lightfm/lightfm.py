@@ -426,11 +426,17 @@ class LightFM(object):
     def get_negative_examples(self , interactions, usernum, itemnum, gps):
         preprocessing = Preprocess(usernum, itemnum)
         self.negative_examples = preprocessing.preprocess(interactions, gps)
-        self.negative_examples = np.array(self.negative_examples)
         for negative_example in self.negative_examples:
             self.negative_num.append(len(negative_example))
+        no_examples = interactions.nnz
+        dimension = np.max(self.negative_num)
+        neg_mat = np.zeros((no_examples,dimension))
+        neg_mat = neg_mat - 1
+        for counter,neg in self.negative_examples:
+            for counter1, neg1 in enumerate(neg):
+                neg_mat.itemset((counter, counter1),neg1)
         self.negative_num = np.array(self.negative_num)
-
+        self.negative_examples = neg_mat
 
     def fit(self, interactions,
             user_features=None, item_features=None,
