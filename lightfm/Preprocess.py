@@ -72,7 +72,7 @@ class Preprocess(object):
         item_num = interactions.shape[1]
         neighbors = []
         for item in range(item_num):
-            print("calculate neighbor for item %d" % item)
+            #print("calculate neighbor for item %d" % item)
             distances = self.get_dis(gps_data, item_num, item)
             neighbors.append(np.where(distances < 5))
         # to represent neighbors use: neighbors[userid][0], this is an array
@@ -96,7 +96,7 @@ class Preprocess(object):
             usr_id = usr_ids[i]
             positive_item_id = item_ids[i]
             temp_neg = []
-            print(i)
+            #print(i)
             if not Y[i] > 0:
                 continue
             for neighbor in neighbors[positive_item_id][0]:
