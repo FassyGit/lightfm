@@ -436,7 +436,8 @@ class LightFM(object):
             for counter1, neg1 in enumerate(neg):
                 neg_mat.itemset((counter, counter1),neg1)
         self.negative_num = np.array(self.negative_num)
-        self.negative_examples = neg_mat
+        self.negative_num = self.negative_num.astype(int)
+        self.negative_examples = neg_mat.astype(int)
 
     def fit(self, interactions,
             user_features=None, item_features=None,
