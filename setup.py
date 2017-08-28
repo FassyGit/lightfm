@@ -145,7 +145,7 @@ class PyTest(TestCommand):
 use_openmp = not sys.platform.startswith('darwin') and not sys.platform.startswith('win')
 
 setup(
-    name='lightfm_liu',
+    name='lightfm',
     version=version,
     description='LightFM recommendation model',
     url='https://github.com/lyst/lightfm',
