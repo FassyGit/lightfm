@@ -432,7 +432,7 @@ class LightFM(object):
         dimension = np.max(self.negative_num)
         neg_mat = np.zeros((no_examples,dimension))
         neg_mat = neg_mat - 1
-        for counter,neg in self.negative_examples:
+        for counter,neg in enumerate(self.negative_examples):
             for counter1, neg1 in enumerate(neg):
                 neg_mat.itemset((counter, counter1),neg1)
         self.negative_num = np.array(self.negative_num)
