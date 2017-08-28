@@ -423,9 +423,9 @@ class LightFM(object):
             raise ValueError('Not all input values are finite. '
                              'Check the input for NaNs and infinite values.')
 
-    def get_negative_examples(self , interactions, usernum, itemnum, gps):
+    def get_negative_examples(self , interactions, usernum, itemnum, gps, radius):
         preprocessing = Preprocess(usernum, itemnum)
-        self.negative_examples = preprocessing.preprocess(interactions, gps)
+        self.negative_examples = preprocessing.preprocess(interactions, gps,radius)
         for negative_example in self.negative_examples:
             self.negative_num.append(len(negative_example))
         no_examples = interactions.nnz
