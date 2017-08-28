@@ -6644,8 +6644,8 @@ static PyObject *__pyx_pf_7lightfm_20_lightfm_fast_openmp_2fit_warp(CYTHON_UNUSE
   /* "lightfm/_lightfm_fast_openmp.pyx":821
  *     cdef flt *neg_it_repr
  *     cdef unsigned int[::1] random_states
- *     cdef int [:, :] neg_view = negative_examples             # <<<<<<<<<<<<<<
- *     cdef int [:] neg_num_view = negative_num
+ *     cdef int[:, :] neg_view = negative_examples             # <<<<<<<<<<<<<<
+ *     cdef int[:] neg_num_view = negative_num
  *     random_states = random_state.randint(0,
  */
   __pyx_t_1 = __Pyx_PyObject_to_MemoryviewSlice_dsds_int(__pyx_v_negative_examples);
@@ -6656,8 +6656,8 @@ static PyObject *__pyx_pf_7lightfm_20_lightfm_fast_openmp_2fit_warp(CYTHON_UNUSE
 
   /* "lightfm/_lightfm_fast_openmp.pyx":822
  *     cdef unsigned int[::1] random_states
- *     cdef int [:, :] neg_view = negative_examples
- *     cdef int [:] neg_num_view = negative_num             # <<<<<<<<<<<<<<
+ *     cdef int[:, :] neg_view = negative_examples
+ *     cdef int[:] neg_num_view = negative_num             # <<<<<<<<<<<<<<
  *     random_states = random_state.randint(0,
  *                                          np.iinfo(np.int32).max,
  */
@@ -6668,8 +6668,8 @@ static PyObject *__pyx_pf_7lightfm_20_lightfm_fast_openmp_2fit_warp(CYTHON_UNUSE
   __pyx_t_2.data = NULL;
 
   /* "lightfm/_lightfm_fast_openmp.pyx":823
- *     cdef int [:, :] neg_view = negative_examples
- *     cdef int [:] neg_num_view = negative_num
+ *     cdef int[:, :] neg_view = negative_examples
+ *     cdef int[:] neg_num_view = negative_num
  *     random_states = random_state.randint(0,             # <<<<<<<<<<<<<<
  *                                          np.iinfo(np.int32).max,
  *                                          size=num_threads).astype(np.uint32)
@@ -6678,7 +6678,7 @@ static PyObject *__pyx_pf_7lightfm_20_lightfm_fast_openmp_2fit_warp(CYTHON_UNUSE
   __Pyx_GOTREF(__pyx_t_4);
 
   /* "lightfm/_lightfm_fast_openmp.pyx":824
- *     cdef int [:] neg_num_view = negative_num
+ *     cdef int[:] neg_num_view = negative_num
  *     random_states = random_state.randint(0,
  *                                          np.iinfo(np.int32).max,             # <<<<<<<<<<<<<<
  *                                          size=num_threads).astype(np.uint32)
@@ -6745,8 +6745,8 @@ static PyObject *__pyx_pf_7lightfm_20_lightfm_fast_openmp_2fit_warp(CYTHON_UNUSE
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "lightfm/_lightfm_fast_openmp.pyx":823
- *     cdef int [:, :] neg_view = negative_examples
- *     cdef int [:] neg_num_view = negative_num
+ *     cdef int[:, :] neg_view = negative_examples
+ *     cdef int[:] neg_num_view = negative_num
  *     random_states = random_state.randint(0,             # <<<<<<<<<<<<<<
  *                                          np.iinfo(np.int32).max,
  *                                          size=num_threads).astype(np.uint32)
@@ -6775,8 +6775,8 @@ static PyObject *__pyx_pf_7lightfm_20_lightfm_fast_openmp_2fit_warp(CYTHON_UNUSE
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
   /* "lightfm/_lightfm_fast_openmp.pyx":823
- *     cdef int [:, :] neg_view = negative_examples
- *     cdef int [:] neg_num_view = negative_num
+ *     cdef int[:, :] neg_view = negative_examples
+ *     cdef int[:] neg_num_view = negative_num
  *     random_states = random_state.randint(0,             # <<<<<<<<<<<<<<
  *                                          np.iinfo(np.int32).max,
  *                                          size=num_threads).astype(np.uint32)
