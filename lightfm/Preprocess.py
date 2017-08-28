@@ -62,7 +62,7 @@ class Preprocess(object):
             i = i + 1
         return (dis_tmp)
 
-    def get_neighbor(self, interactions, gps_data):
+    def get_neighbor(self, interactions, gps_data,radius):
         """
         I will use this function to get a neighbor matrix for items in geographical sense
         :param interactions:
@@ -74,14 +74,14 @@ class Preprocess(object):
         for item in range(item_num):
             #print("calculate neighbor for item %d" % item)
             distances = self.get_dis(gps_data, item_num, item)
-            neighbors.append(np.where(distances < 5))
+            neighbors.append(np.where(distances < radius))
         # to represent neighbors use: neighbors[userid][0], this is an array
         return neighbors
 
-    def preprocess(self,interactions, gps_data):
+    def preprocess(self,interactions, gps_data, radius):
 
         start = time.clock()
-        neighbors = self.get_neighbor(interactions, gps_data)
+        neighbors = self.get_neighbor(interactions, gps_data, radius)
         elapse = (time.clock() - start)
         print("get neighbor time used:", elapse)
 
